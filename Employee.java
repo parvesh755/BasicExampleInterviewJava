@@ -1,126 +1,114 @@
-package hashcodeAndEquals.co;
-public class Employee 
+package com.df.streamExample.comprableAndComprator;
 
-{ 
+class Employee implements Comparable<Employee> { 
 
-private Integer id; 
+  
+   private int id; 
 
-private String firstname; 
+   private int age; 
 
-private String lastName; 
+   private String name; 
 
-private String department; 
+   private float salary; 
 
- 
+  
 
- 
+   public Employee(int id, int age, String name,float salary) { 
 
-public Integer getId() { 
+      this.id = id; 
 
-return id; 
+      this.age = age; 
 
-} 
+      this.name = name; 
 
-public void setId(Integer id) { 
+      this.salary = salary; 
 
-this.id = id; 
+   } 
 
-} 
+  
 
-public String getFirstname() { 
+    
 
-return firstname; 
+  
 
-} 
+   @Override 
 
-public void setFirstname(String firstname) { 
+   public int compareTo(Employee o) { 
 
-this.firstname = firstname; 
+       return (this.id - o.id); 
 
-} 
+   } 
 
-public String getLastName() { 
+    
 
-return lastName; 
+  
 
-} 
-
-public void setLastName(String lastName) { 
-
-this.lastName = lastName; 
-
-} 
-
-public String getDepartment() { 
-
-return department; 
-
-} 
-
-public void setDepartment(String department) { 
-
-this.department = department; 
-
-} 
-
- 
-
- 
-
-@Override 
+   @Override 
 
 public String toString() { 
 
-return "Employee [id=" + id + ", firstname=" + firstname + ", lastName=" + lastName + ", department=" 
-
-+ department + "]"; 
-
-} 
-
- 
-
-  
-
- 
-
-@Override 
-
-public boolean equals(Object obj) { 
-
-if (this == obj) 
-
-return true; 
-
-if (obj == null) 
-
-return false; 
-
-if (getClass() != obj.getClass()) 
-
-return false; 
-
-Employee obj2 = (Employee) obj; 
-
- 
-
-return (this.getId() == obj2.getId()) && this.getFirstname()==obj2.getFirstname(); 
+return "Employee [id=" + id + ", age=" + age + ", name=" + name + ", salary=" + salary + "]"; 
 
 } 
 
   
 
-@Override 
+public float getSalary() { 
 
-public int hashCode() { 
-
-           final int prime = 31; 
-
-int result = 1; 
-
-result = prime * result + ((id == null) ? 0 : id.hashCode()); 
-
-return result; 
+return salary; 
 
 } 
 
+ public void setSalary(float salary) { 
+
+this.salary = salary; 
+
 } 
+
+ public int getId() { 
+
+      return id; 
+
+   } 
+
+  public void setId(int id) { 
+
+      this.id = id; 
+
+   } 
+
+   public int getAge() { 
+
+      return age; 
+
+   } 
+
+  
+
+   public void setAge(int age) { 
+
+      this.age = age; 
+
+   } 
+
+  
+
+   public String getName() { 
+
+      return name; 
+
+   } 
+
+  
+
+   public void setName(String name) { 
+
+      this.name = name; 
+
+   } 
+
+} 
+
+ 
+
+ 
