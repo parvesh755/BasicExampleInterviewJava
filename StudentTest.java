@@ -1,90 +1,82 @@
-package com.ei.ArraysForStreams;
+package hashcodeAndEquals.co;
+import java.util.HashMap; 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.DoubleSummaryStatistics;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.Map; 
 
+  
 
-public class StudentTest {
+public class StudentTest { 
 
-	public static void main(String[] args) {
-		
-		List<Student> studentList = new ArrayList<Student>(); 	
-		
-		Student student1 = new Student( "Jayesh",12,"sgdf",60);
-		Student student2 = new Student( "parvesh",23,"math",70);
-		Student student3 = new Student( "kumar",54,"english",80);
-		Student student4 = new Student( "amit",70,"hindi",40);
-		
-		studentList.add(student1);
-		studentList.add(student2);
-		studentList.add(student3);
-		studentList.add(student4);
-		
-		Map<Boolean, List<Student>> studentspartionedByPercentage = studentList.stream().collect(Collectors.partitioningBy(student -> student.getPercentage() > 60.0));
+  
 
-		System.out.println(studentspartionedByPercentage);
-		
-		
-		
-		List<Student> top3Students = studentList.stream().sorted(Comparator.comparingDouble(Student::getPercentage).reversed()).limit(3).collect(Collectors.toList());
+public static void main(String[] args) { 
 
-		System.out.println(top3Students);
-		
-		
-		Map<String, Double> namePercentageMap = studentList.stream().collect(Collectors.toMap(Student::getName, Student::getPercentage));
+Student s1 = new Student(1); 
 
-		System.out.println(namePercentageMap);
-		
-		
-		
-		Set<String> subjects = studentList.stream().map(Student::getSubject).collect(Collectors.toSet());
-		
-		System.out.println(subjects);
-		
-		
-		
-		
-		DoubleSummaryStatistics studentStats = studentList.stream().collect(Collectors.summarizingDouble(Student::getPercentage));
-        
-		System.out.println("Highest Percentage : "+studentStats.getMax());
-		          
-		System.out.println("Lowest Percentage : "+studentStats.getMin());
-		          
-		System.out.println("Average Percentage : "+studentStats.getAverage());
+Student s2 = new Student(1); 
 
-		
-		Long studentCount = studentList.stream().collect(Collectors.counting());
-		
-		System.out.println(studentCount);
-		
-		
-		
-		Map<String, List<Student>> studentsGroupedBySubject = studentList.stream().collect(Collectors.groupingBy(Student::getSubject));
+             System.out.println(s1.equals(s2)); 
 
-		System.out.println(studentsGroupedBySubject);
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	}
+ 
 
-}
+System.out.println("s1 hashcode"+s1.hashCode());  // hashcode must be same 
+
+System.out.println("s2 hashcode"+s2.hashCode()); 
+
+ 
+
+   //	Student s2 = new Student(2); //2  if object are not equal 
+
+System.out.println(s1.equals(s2)); 
+
+System.out.println("s1 hashcode"+s1.hashCode()); 
+
+System.out.println("s2 hashcode"+s2.hashCode()); 
+
+ 
+
+ 
+
+      //	hashcode are same  equal method mey be true or false 
+
+ 
+
+        System.out.println(s1.equals(s2)); 
+
+ 
+
+System.out.println("s1 hashcode"+s1.hashCode()); 
+
+System.out.println("s2 hashcode"+s2.hashCode()); 
+
+ 
+
+   //	hashcode are not same  equal method always false false 
+
+ 
+
+        System.out.println(s1.equals(s2)); 
+
+ 
+
+System.out.println("s1 hashcode"+s1.hashCode()); 
+
+System.out.println("s2 hashcode"+s2.hashCode()); 
+
+ 
+
+           Map<Student,String> map = new HashMap<Student,String>(); 
+
+map.put(s1,"parvesh"); 
+
+map.put(s2,"parvesh"); 
+
+ 
+
+System.out.println(map); 
+
+} 
+
+} 
+
+ 

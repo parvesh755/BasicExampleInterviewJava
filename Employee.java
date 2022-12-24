@@ -1,87 +1,126 @@
-package com.ei.ArraysForStreams;
+package hashcodeAndEquals.co;
+public class Employee 
 
-class Employee
-{
-    int id;
-      
-    String name;
-      
-    int age;
-      
-    String gender;
-      
-    String department;
-      
-    int yearOfJoining;
-      
-    double salary;
-      
-    public Employee(int id, String name, int age, String gender, String department, int yearOfJoining, double salary) 
-    {
-        this.id = id;
-        this.name = name;
-        this.age = age;
-        this.gender = gender;
-        this.department = department;
-        this.yearOfJoining = yearOfJoining;
-        this.salary = salary;
-    }
-      
-    public int getId() 
-    {
-        return id;
-    }
-      
-    public String getName() 
-    {
-        return name;
-    }
-      
-    public int getAge() 
-    {
-        return age;
-    }
-      
-    public String getGender() 
-    {
-        return gender;
-    }
-      
-    public String getDepartment() 
-    {
-        return department;
-    }
-      
-    public int getYearOfJoining() 
-    {
-        return yearOfJoining;
-    }
-      
-    public double getSalary() 
-    {
-        return salary;
-    }
-      
-    
-    
-    
-    
-    
-    public Employee() {
-		super();
-	}
+{ 
 
+private Integer id; 
 
-	@Override
-    public String toString() 
-    {
-        return "Id : "+id
-                +", Name : "+name
-                +", age : "+age
-                +", Gender : "+gender
-                +", Department : "+department
-                +", Year Of Joining : "+yearOfJoining
-                +", Salary : "+salary;
-    }
-    
-}
+private String firstname; 
+
+private String lastName; 
+
+private String department; 
+
+ 
+
+ 
+
+public Integer getId() { 
+
+return id; 
+
+} 
+
+public void setId(Integer id) { 
+
+this.id = id; 
+
+} 
+
+public String getFirstname() { 
+
+return firstname; 
+
+} 
+
+public void setFirstname(String firstname) { 
+
+this.firstname = firstname; 
+
+} 
+
+public String getLastName() { 
+
+return lastName; 
+
+} 
+
+public void setLastName(String lastName) { 
+
+this.lastName = lastName; 
+
+} 
+
+public String getDepartment() { 
+
+return department; 
+
+} 
+
+public void setDepartment(String department) { 
+
+this.department = department; 
+
+} 
+
+ 
+
+ 
+
+@Override 
+
+public String toString() { 
+
+return "Employee [id=" + id + ", firstname=" + firstname + ", lastName=" + lastName + ", department=" 
+
++ department + "]"; 
+
+} 
+
+ 
+
+  
+
+ 
+
+@Override 
+
+public boolean equals(Object obj) { 
+
+if (this == obj) 
+
+return true; 
+
+if (obj == null) 
+
+return false; 
+
+if (getClass() != obj.getClass()) 
+
+return false; 
+
+Employee obj2 = (Employee) obj; 
+
+ 
+
+return (this.getId() == obj2.getId()) && this.getFirstname()==obj2.getFirstname(); 
+
+} 
+
+  
+
+@Override 
+
+public int hashCode() { 
+
+           final int prime = 31; 
+
+int result = 1; 
+
+result = prime * result + ((id == null) ? 0 : id.hashCode()); 
+
+return result; 
+
+} 
+
+} 
