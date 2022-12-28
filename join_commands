@@ -1,0 +1,57 @@
+
+CREATE TABLE Tb1_Employee(Emp_ID INT NOT NULL,Emp_Name VARCHAR(20) NOT NULL,Emp_No INT NOT NULL);
+
+INSERT INTO Tb1_Employee(Emp_ID,Emp_Name,Emp_No)VALUES (101, 'Ashish Kaktan',9450425345);
+INSERT INTO Tb1_Employee(Emp_ID,Emp_Name,Emp_No)VALUES (102, 'Raj Choudhary',8462309621);
+INSERT INTO Tb1_Employee(Emp_ID,Emp_Name,Emp_No)VALUES (103, 'Vivek Oberoi',7512309034);
+INSERT INTO Tb1_Employee(Emp_ID,Emp_Name,Emp_No)VALUES (104, 'Shantanu Khandelwal',9020330023);
+INSERT INTO Tb1_Employee(Emp_ID,Emp_Name,Emp_No)VALUES (105, 'Khanak Desai',8451004522);
+
+SELECT * FROM Tb1_Employee;
+
+
+CREATE TABLE Tb2_Employment(Emp_ID INT NOT NULL,Emp_Profile VARCHAR(20) NOT NULL,Emp_Country VARCHAR(20) NOT NULL,Emp_Join_Date DATE NOT NULL);
+
+INSERT INTO Tb2_Employment(Emp_ID,Emp_Profile,Emp_Country,Emp_Join_Date)VALUES (101, 'Content Writer','Germany','11.NOV.2011');
+
+INSERT INTO Tb2_Employment(Emp_ID,Emp_Profile,Emp_Country,Emp_Join_Date)VALUES (104, 'Data Analyst','India','11.DEC.2022');
+
+INSERT INTO Tb2_Employment(Emp_ID,Emp_Profile,Emp_Country,Emp_Join_Date)VALUES (105, 'Software Engineer','India','03.MARCH.2022');
+
+INSERT INTO Tb2_Employment(Emp_ID,Emp_Profile,Emp_Country,Emp_Join_Date)VALUES (108, 'DeveExecutive','Europe','15.FEB.2023');
+
+INSERT INTO Tb2_Employment(Emp_ID,Emp_Profile,Emp_Country,Emp_Join_Date)VALUES (109, 'MarketingManager','Mexico','23.MAY.2023');
+
+
+SELECT * FROM Tb1_Employee;
+SELECT * FROM Tb2_Employment;
+
+
+
+//INNER JOIN
+
+SELECT Emp_Name, Emp_No, Emp_Profile, Emp_Country, Emp_Join_Date FROM Tb1_Employee INNER JOIN Tb2_Employment 
+ON Tb1_Employee.Emp_ID=Tb2_Employment.Emp_ID;
+
+//LEFT JOIN
+
+SELECT Tb1_Employee.Emp_Name, Tb1_Employee.Emp_No, Tb2_Employment.Emp_Profile, Tb2_Employment.Emp_Country FROM Tb1_Employee 
+LEFT JOIN Tb2_Employment ON Tb1_Employee.Emp_ID=Tb2_Employment.Emp_ID;
+
+
+//RIGHT JOIN
+
+SELECT Tb1_Employee.Emp_Name, Tb1_Employee.Emp_No, Tb2_Employment.Emp_Profile, Tb2_Employment.Emp_Join_Date 
+FROM Tb1_Employee RIGHT JOIN Tb2_Employment 
+ON Tb1_Employee.Emp_ID=Tb2_Employment.Emp_ID;
+
+
+//FULL OUTER JOIN
+SELECT * FROM Tb1_Employee FULL OUTER JOIN Tb2_Employment ON Tb1_Employee.EMP_ID = Tb2_Employment.EMP_ID;
+
+SELECT * FROM Tb1_Employee NATURAL JOIN Tb2_Employment;
+
+
+SELECT * FROM Tb1_Employee CROSS JOIN Tb2_Employment;
+
+
